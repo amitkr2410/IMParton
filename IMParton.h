@@ -5,7 +5,7 @@ class IMParton
 //this class is for users
 {
 public:
-	IMParton(unsigned int, unsigned int);               //constructor function, the first parameter is Z, the other is A for a nuclei
+	IMParton(unsigned int Z_temp=1, unsigned int A_temp=1);               //constructor function, the first parameter is Z, the other is A for a nuclei
 	virtual void setDataSet(int);                            //Choose a data set, 1 is for set A and 2 is for set B
 	virtual double getPDF(int, double x, double Q2) const;   //user function to get parton distribution functions, see ReadMe.txt for details       
         virtual double getXUV(double x, double Q2) const;        //return x(u -ubaar)

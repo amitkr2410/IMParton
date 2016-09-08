@@ -47,7 +47,7 @@ double IMParton::getPDF(int Iparton, double x, double Q2) const
 }
 
 //the constructor and initialization
-IMParton::IMParton(unsigned int Z_temp=1, unsigned int A_temp=1)
+IMParton::IMParton(unsigned int Z_temp, unsigned int A_temp)
 :Z(Z_temp),A(A_temp)            //Z and A are parameters for a nuclei
 {
 	cout<<"    IMParton version - 1.0"<<endl;
@@ -73,7 +73,7 @@ IMParton::IMParton(unsigned int Z_temp=1, unsigned int A_temp=1)
 	{
 		for(j=0;j<xMax;j++)
 		{
-			datain>>Q2>>x>>gridA[(xMax*i+j)*7+0]>>gridA[(xMax*i+j)*7+1]>>gridA[(xMax*i+j)*7+2]>>gridA[(xMax*i+j)*7+3]>>gridA[(xMax*i+j)*7+4]>>gridA[(xMax*i+j)*7+5]>>gridA[(xMax*i+j)*7+6];
+			datain>>Q2>>x>>(*(gridA+(xMax*i+j)*7))>>(*(gridA+(xMax*i+j)*7+1))>>(*(gridA+(xMax*i+j)*7+2))>>(*(gridA+(xMax*i+j)*7+3))>>(*(gridA+(xMax*i+j)*7+4))>>(*(gridA+(xMax*i+j)*7+5))>>(*(gridA+(xMax*i+j)*7+6));
 		}
 	}
 	datain.close();
@@ -87,8 +87,7 @@ IMParton::IMParton(unsigned int Z_temp=1, unsigned int A_temp=1)
         {
                 for(j=0;j<xMax;j++)
                 {
-                        datain>>Q2>>x>>gridB[(xMax*i+j)*7+0]>>gridB[(xMax*i+j)*7+1]>>gridB[(xMax*i+j)*7+2]>>gridB[(xMax*i+j)*7+3]>>gridB[(xMax*i+j)*7+4]>>
-gridB[(xMax*i+j)*7+5]>>gridB[(xMax*i+j)*7+6];
+                        datain>>Q2>>x>>(*(gridB+(xMax*i+j)*7+0))>>(*(gridB+(xMax*i+j)*7+1))>>(*(gridB+(xMax*i+j)*7+2))>>(*(gridB+(xMax*i+j)*7+3))>>(*(gridB+(xMax*i+j)*7+4))>>(*(gridB+(xMax*i+j)*7+5))>>(*(gridB+(xMax*i+j)*7+6));
                 }
         }
         datain.close();
