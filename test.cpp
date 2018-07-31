@@ -21,11 +21,11 @@ int main()
     gettimeofday(&tstart,NULL);       //get the starting time
 
     double lnxstep=(log(1)-log(0.1))/100;       //step length of log(x) for output data
-    ofstream outdata1("Q2_0.1_xuv.dat");        //output file for xuv at Q^2 = 0.1 GeV^2
-    ofstream outdata2("Q2_0.7_xdv.dat");        //output file for xdv at Q^2 = 0.7 GeV^2
-    ofstream outdata3("Q2_2.5_xsbar.dat");      //output file for xsbar at Q^2 = 2.5 GeV^2
-    ofstream outdata4("Q2_10_xgluon.dat");      //output file for xgluon at Q^2 = 10 GeV^2
-    ofstream outdata5("Q2_54_dbar_over_ubar.dat");     //output file for dbar/ubar at Q^2 = 54 GeV^2
+    ofstream outdata1("Q2_0.1_xuv.txt");        //output file for xuv at Q^2 = 0.1 GeV^2
+    ofstream outdata2("Q2_0.7_xdv.txt");        //output file for xdv at Q^2 = 0.7 GeV^2
+    ofstream outdata3("Q2_2.5_xsbar.txt");      //output file for xsbar at Q^2 = 2.5 GeV^2
+    ofstream outdata4("Q2_10_xgluon.txt");      //output file for xgluon at Q^2 = 10 GeV^2
+    ofstream outdata5("Q2_54_dbar_over_ubar.txt");     //output file for dbar/ubar at Q^2 = 54 GeV^2
     //get the parton distribution functions
     for(int i=0;i<400;i++)
     {

@@ -38,10 +38,13 @@ charm sea quark = x*2*cbar)
 at low Q^2, and sbar, gluon, dbar/ubar distributions at high Q^2.
 ./test.cpp can be modified as users' wants.
 To run the example,
->tar -zvxf IMParton.tar.gz
+>git clone https://github.com/lukeronger/IMParton.git
 >cd IMParton
+>cmake .
 >make
 >./testIMParton
+
+(a makefile is also provided. alternative compiling: make -f _makefile)
 
 3. Method
 We provide two data sets of PDFs obtained from the global analysis to
