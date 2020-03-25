@@ -65,7 +65,7 @@ IMParton::IMParton(unsigned int Z_temp, unsigned int A_temp)
 	gridB = new double[Q2Max*xMax*flavorMax];
 	//read grid data for interpolation
 	//reading data set A
-	sprintf(filename,"grid_%d_%d_SetA.dat",Z,A);
+	sprintf(filename,"grid_%d_%d_SetA.dat",1,1);
 	cout<<"    Loading "<<filename<<endl;
 	datain.open(filename);
 	if(!datain.good())cout<<"!!->Error while opening "<<filename<<"!\n!!->grid data file not exist?"<<endl;
@@ -79,7 +79,7 @@ IMParton::IMParton(unsigned int Z_temp, unsigned int A_temp)
 	}
 	datain.close();
 	//reading data set B
-        sprintf(filename,"grid_%d_%d_SetB.dat",Z,A);
+        sprintf(filename,"grid_%d_%d_SetB.dat",1,1);
         cout<<"    Loading "<<filename<<endl;
         datain.open(filename);
         if(!datain.good())cout<<"!!->Error while opening "<<filename<<"!\n!!->grid data file not exist?"<<endl;
@@ -108,25 +108,29 @@ IMParton::~IMParton(void)
 //a method which returns xuv
 double IMParton::getXUV(double x, double Q2) const
 {
-	return getPDFType(1,x,Q2); 
+	if(Z==0)return getPDFType(2,x,Q2);
+	else return getPDFType(1,x,Q2); 
 }
 
 //a method which returns xdv
 double IMParton::getXDV(double x, double Q2) const
 {
-        return getPDFType(2,x,Q2);
+	if(Z==0)return getPDFType(1,x,Q2);
+	else return getPDFType(2,x,Q2);
 }
 
 //a method which returns xusea
 double IMParton::getXUSea(double x, double Q2) const
 {
-        return getPDFType(3,x,Q2);
+	if(Z==0)return getPDFType(4,x,Q2);
+	else return getPDFType(3,x,Q2);
 }
 
 //a method which returns xdsea
 double IMParton::getXDSea(double x, double Q2) const
 {
-        return getPDFType(4,x,Q2);
+	if(Z==0)return getPDFType(3,x,Q2);
+	else return getPDFType(4,x,Q2);
 }
 
 //a method which returns xssea
